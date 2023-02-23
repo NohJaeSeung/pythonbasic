@@ -119,3 +119,18 @@ DESC test_table;
 ALTER TABLE test_table
 CHANGE test_column0 test_column2 int;
 DESC test_table;
+
+#day2
+USE python;
+# 자동으로 증가하는(AUTO_INCREMENT) column 만들기 ==> PRIMERY KEY 고유값으로 지정해서
+#column 이름은 id 데이터 타입은 int
+#primary key를 붙이지 않으면 에러가 납니다
+CREATE OR REPLACE TABLE test (id INT AUTO_INCREMENT PRIMARY KEY);# id에 auto increment속성 부여
+DESCRIBE test;
+INSERT INTO test VALUES (); #필드가 id 밖에 없으므로 id에 값 자동으로 부여 ()에 원래 값넣어야하지만 자동으로 증가하면서 넣기로 했음(중복 값은 X)
+SELECT * FROM test; # select (필드이름 ==>id,name,등등) from (테이블);
+#테이블 안의 특정 index 지우기
+DELETE FROM test WHERE id = 101;#WHERE절 안쓸경우 test테이블 전체값 삭제되니 주의!
+SELECT * FROM test;
+DELETE FROM test;
+
